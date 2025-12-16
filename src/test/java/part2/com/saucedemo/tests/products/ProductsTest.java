@@ -1,0 +1,21 @@
+package part2.com.saucedemo.tests.products;
+
+import com.saucedemo.pages.ProductsPage;
+import static org.testng.Assert.*;
+import org.testng.annotations.Test;
+import part2.com.saucedemo.base.BaseTest;
+
+public class ProductsTest extends BaseTest {
+
+    @Test
+    public void testProductsHeaderIsDisplayed() {
+        ProductsPage productsPage = loginPage.
+                logIntoApplication("standard_user", "secret_sauce");
+        /*
+        No need for Assert if type import static org.testng.Assert.*;
+        Message will show only if the test failed
+         */
+        assertTrue(productsPage.isProductsHeaderDisplayed(),
+                "\n Products Header Is Not Displayed \n");
+    }
+}
